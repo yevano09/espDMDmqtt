@@ -6,13 +6,13 @@
 
 
 EspMQTTClient client(
-  "phoenix5",
-  "g0d!$g0d",
-  "m11.cloudmqtt.com",  // MQTT Broker server ip
-  "lyhdpqlj",   // Can be omitted if not needed
-  "4OCSTRT0DPlQ",   // Can be omitted if not needed
+  "", //wifi id
+  "", // wifi passowrd
+  "",  // MQTT Broker server ip
+  "",   // Can be omitted if not needed
+  "",   // Can be omitted if not needed
   "TestClient",     // Client name that uniquely identify your device
-  12492              // The MQTT port, default to 1883. this line can be omitted
+  00000              // The MQTT port, default to 1883. this line can be omitted
 );
 
 
