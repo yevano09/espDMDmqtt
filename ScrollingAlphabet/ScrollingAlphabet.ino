@@ -16,7 +16,6 @@ EspMQTTClient client(
 );
 
 
-
 /*
   Scrolling alphabet demo, displays characters one at a time into a scrolling box.
  */
@@ -65,7 +64,8 @@ void setup() {
 
   delay(10000);    //Wait for one second
   dmd.begin();
-  
+
+  dmd.fillScreen(false); 
 }
 
 void ScanDMD()
@@ -85,10 +85,20 @@ void onConnectionEstablished()
 }
 
 void showMessage(){
+  dmd.fillScreen(false); 
   char marqueeString[256];
   int myTextLength = message.length();
   message.toCharArray(marqueeString, myTextLength+1);
-  dmd.drawString(0,0,marqueeString);
+  int i = 0;
+  while(marqueeString[i] != '\0') {
+   // box.clear();
+   // dmd.fillScreen(false);
+    Serial.print(marqueeString[i]);
+    box.print(marqueeString[i]);
+    delay(100);
+    i++;
+  }
+ // dmd.drawString(0,0,marqueeString);
 }
 
 
@@ -99,5 +109,8 @@ void loop() {
    client.loop();
     Serial.println(message);  //Just for debugging
     showMessage();
-    delay(1000);    //Wait for one second
+    delay(1000);
+     //Wait for one second
+      // int steps = random(48); 
+
   }
